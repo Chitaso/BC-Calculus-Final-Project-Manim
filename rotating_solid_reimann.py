@@ -9,7 +9,7 @@ class ReimannPart(VMobject):
         self.lower_bound = lower_bound
         self.upper_bound = upper_bound
 
-        temp = (upper_bound / 2) ** 0.5
+        temp = (upper_bound * 2) ** 0.5
         prism = Prism(dimensions=[upper_bound - lower_bound, temp, temp], fill_opacity=1, stroke_opacity=1,
                       stroke_width=1, stroke_color=BLACK).move_to(
             [lower_bound + (upper_bound - lower_bound) / 2, 0, 0]).rotate(PI / 4, axis=RIGHT)
