@@ -33,37 +33,39 @@ class ReimannSum(ThreeDScene):
         self.set_camera_orientation(zoom=0.5)
         self.play(FadeIn(axes), FadeIn(x_label), FadeIn(y_label), FadeIn(z_label))
 
-        self.move_camera(phi=75 * DEGREES, theta=-75 * DEGREES, zoom=1.2, run_time=1.5)
+        self.move_camera(phi=75 * DEGREES, theta=-80 * DEGREES, zoom=1.2, run_time=1.5)
 
         self.wait(0.5)
 
-        parts = [ReimannPart(0, 4)]
-        self.play(*[FadeIn(i) for i in parts])
+        parts = [ReimannPart(i / 8, (i + 1) / 8) for i in range(32)]
+        self.play(AnimationGroup(*[FadeIn(i) for i in parts], lag_ratio=0.1))
         self.wait(0.5)
-
-        for i in range(5):
-            temp = []
-            anims = []
-
-            for p in parts:
-                a, b = p.split()
-                temp += b
-                anims += [ReplacementTransform(*i) for i in zip(a, b)]
-
-            parts = temp
-
-            self.play(*anims)
-            self.wait(1)
-
-        self.wait(0.3)
 
         self.play(FadeOut(VGroup(axes, x_label, y_label, z_label)))
 
         shape = VGroup(*parts)
         self.play(shape.animate.move_to([0, 0, 0]))
 
-        self.begin_ambient_camera_rotation(rate=0.2)
-        self.wait(40)
+        self.wait(0.5)
+
+        n = 6
+        for i, j, k, l in zip(parts + [None] * (n - 1), [None] + parts + [None] * (n - 2),
+                              [None] * (n - 2) + parts + [None], [None] * (n - 1) + parts):
+            anims = []
+
+            if i:
+                anims.append(i.animate.set_color("#ACE2EE"))
+            if j:
+                anims.append(j.animate.set_color(WHITE))
+            if k:
+                anims.append(k.animate.set_color("#ACE2EE"))
+            if l:
+                anims.append(l.animate.set_color(BLUE).set_stroke(BLACK))
+
+            self.play(*anims, run_time=0.032)
+
+        self.wait(0.5)
+
 
 if __name__ == "__main__":
     os.system(f"manim {__file__} -pqh")
