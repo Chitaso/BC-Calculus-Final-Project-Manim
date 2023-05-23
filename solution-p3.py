@@ -7,8 +7,8 @@ class FinalSolutionP2Composite(Scene):
     def construct(self):
         # Actually solving the problem
         sol_1 = Tex(r"$V = \int \! A(x) \, \mathrm{d}x$").shift(RIGHT * 3.2 + UP * 1.8)
-        sol_2 = Tex(r"$V = \int_0^4 \! A(x) \, \mathrm{d}x$").move_to(sol_1)
-        sol_3 = Tex(r"$V = \int_0^4 \! 2x \, \mathrm{d}x$").move_to(sol_2)
+        sol_2 = Tex(r"$V = \int\limits_0^4 \! A(x) \, \mathrm{d}x$").move_to(sol_1)
+        sol_3 = Tex(r"$V = \int\limits_0^4 \! 2x \, \mathrm{d}x$").move_to(sol_2)
 
         self.play(Write(sol_1))
         self.wait(0.5)
@@ -21,7 +21,7 @@ class FinalSolutionP2Composite(Scene):
         self.play(Write(sol_4))
         self.wait(0.5)
 
-        sol_5 = Tex(r"$V = (4)^2 - (0)^2$").next_to(sol_4, DOWN).shift(RIGHT * 0.7)
+        sol_5 = Tex(r"$V = \left(4\right)^2 - \left(0\right)^2$").next_to(sol_4, DOWN).shift(RIGHT * 0.7)
         self.play(Write(sol_5))
         self.wait(0.5)
 

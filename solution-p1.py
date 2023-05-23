@@ -96,7 +96,7 @@ class FinalSolutionP1(ThreeDScene):
             0.7)
         self.play(ReplacementTransform(line_len_explain, line_len_explain_real))
 
-        sol_s_1 = Tex(r"$\sqrt{2}S = 2\sqrt{x}$").rotate(PI / 2).rotate(PI / 2, axis=UP).scale(0.7).move_to(
+        sol_s_1 = Tex(r"$S\sqrt{2} = 2\sqrt{x}$").rotate(PI / 2).rotate(PI / 2, axis=UP).scale(0.7).move_to(
             [7, 1.8, 1.3])
         sol_s_2 = Tex(r"$S = \frac{2\sqrt{x}}{\sqrt{2}}$").rotate(PI / 2).rotate(PI / 2, axis=UP).scale(0.7).move_to(
             [7, 1.8, 0.6])
@@ -115,7 +115,7 @@ class FinalSolutionP1(ThreeDScene):
 
         sol_a_1 = Tex(r"$A(x) = S^2$").rotate(PI / 2).rotate(PI / 2, axis=UP).scale(0.7).move_to(
             [7, 1.8, -0.8])
-        sol_a_2 = Tex(r"$A(x) = (\sqrt{2x})^2$").rotate(PI / 2).rotate(PI / 2, axis=UP).scale(0.7).move_to(
+        sol_a_2 = Tex(r"$A(x) = \left(\sqrt{2x}\right)^2$").rotate(PI / 2).rotate(PI / 2, axis=UP).scale(0.7).move_to(
             [7, 1.8, -0.8])
         sol_a_3 = Tex(r"$A(x) = 2x$").rotate(PI / 2).rotate(PI / 2, axis=UP).scale(0.7).move_to(
             [7, 1.8, -0.8])
